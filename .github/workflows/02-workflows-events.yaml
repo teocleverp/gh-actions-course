@@ -1,10 +1,10 @@
 name: workflow events
 
 on:
-    push:
+    # push:
     pull_request:
-    schedule:
-        - cron: '*/5 * * * *' # every day at midnight
+    # schedule:
+    #     - cron: '*/5 * * * *' # every day at midnight
     workflow_dispatch:
 jobs:
     echo-event:
