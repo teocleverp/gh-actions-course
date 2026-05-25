@@ -1,0 +1,14 @@
+name: Filter activity
+on:
+    pull_request:
+        types: [opened, synchronize]
+        branches: [main]
+        paths-ignore:
+            - 'README.md'
+
+jobs:
+    echo-changes:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Echo changes
+              run: echo "Changes detected in pull request #${{ github.event.pull_request.number }} from branch ${{ github.event.pull_request.head.ref }} to branch ${{ github.event.pull_request.base.ref }}"

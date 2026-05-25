@@ -1,0 +1,24 @@
+name: Using expressions
+run-name: "Using expressions | Debug: ${{ inputs.debug }}"
+
+on:
+    push:
+    workflow_dispatch:
+        inputs:
+            debug:
+                type: boolean
+                default: false
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "[debug] Echo debug value"
+              if: ${{ inputs.debug }}
+              run: |
+                echo "Debug value is: ${{ github.event_name }}"
+                echo "Runner is: ${{ runner.os }}"
+                echo "Branch is: ${{ github.ref }}"
+            - name: "[debug] Print when triggerered from main branch"
+              if: ${{ github.ref == 'refs/heads/main' && inputs.debug }}
+              run: echo "This workflow was triggered from the main branch."
+
