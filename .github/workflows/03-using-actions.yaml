@@ -5,20 +5,27 @@ on: push
 jobs:
     build:
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: ./03-using-actions
         # Checkout the repository
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
+              # Install dependencies
             - name: Set up Node.js
               uses: actions/setup-node@v3
               with:
                   node-version: '20.x'
             - name: Install dependencies
               run: npm install
-              working-directory: ./03-using-actions/react-app
+
+            - name: Run tests
+              run: npm test
 
 
 
-        # Install dependencies
+
+        
 
         # Execute tests
