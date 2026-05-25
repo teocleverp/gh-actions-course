@@ -1,0 +1,18 @@
+name: Using actions
+
+on: push
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        # Checkout the repository
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+            - name: Print repository contents
+              run: ls -la
+
+
+        # Install dependencies
+
+        # Execute tests
