@@ -7,7 +7,7 @@ jobs:
         runs-on: ubuntu-latest
         defaults:
             run:
-                working-directory: ./03-using-actions
+                working-directory: ./03-using-actions/react-app
         # Checkout the repository
         steps:
             - name: Checkout repository
